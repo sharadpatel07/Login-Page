@@ -12,8 +12,10 @@ const Login = () => {
     Axios.post("http://localhost:4000/auth/login" , {username,email,password})
     .then((res)=>{
       if(res.data.success){
-        setTOKEN(res.data.token);
-        localStorage.setItem("token",TOKEN);
+        console.log(res.data.success)
+        setTOKEN(res.data.jwtToken);
+        console.log("Token: " ,res.data.jwtToken);
+        localStorage.setItem("TOKEN",res.data.jwtToken);
         Navigate("/")
         const obj ={
           name:username,
