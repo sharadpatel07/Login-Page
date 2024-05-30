@@ -51,7 +51,7 @@ router.post('/getuser' , fetchuser ,async(req ,res)=>{
     try {
         const userID = req.user.id;
         const user = await User.findById(userID).select("-password")
-        res.send(user);
+        res.send(JSON.stringify(user));
         console.log(user)
     } catch (error) {
         console.log(error)
